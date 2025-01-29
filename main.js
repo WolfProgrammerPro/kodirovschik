@@ -107,3 +107,4 @@ function Copy(){
         document.execCommand('copy')
     }
 }
+console.log("Succes")
