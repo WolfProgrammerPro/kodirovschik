@@ -4,11 +4,12 @@ var symbols = ["`", "~","1","!","2","@","3","#","4","$","5","%","6","^","7","&",
     "H","J","K","L",":","z","x","c","v","b","n","m",",",".","/","Z","X","C","V","B","N","M","<",">",
     "?","ё","Ё","№","й","ц","у","к","е","н","г","ш","щ","з","х","ъ","Й","Ц","У","К","Е","Н","Г","Ш",
     "Щ","З","Х","Ъ","ф","ы","в","а","п","р","о","л","д","ж","э","Ф","Ы","В","А","П","Р","О","Л","Д",
-    "Ж","Э","я","ч","с","м","и","т","ь","б","ю","Я","Ч","С","М","И","Т","Ь","Б","Ю"," "
+    "Ж","Э","я","ч","с","м","и","т","ь","б","ю","Я","Ч","С","М","И","Т","Ь","Б","Ю", " "
 ];
 
 document.getElementById("code").addEventListener("click", Code)
 document.getElementById("encode").addEventListener("click", EnCode)
+document.getElementById("copy").addEventListener("click", Copy)
 
 function Code(){
     var text_str = document.getElementById("message").value;
@@ -49,19 +50,7 @@ function Code(){
         finalWord.push(fin_w);
     }
     var finalWord_str = finalWord.join("");
-
-    var inp = document.createElement('input')
-  inp.value = finalWord_str
-  document.body.appendChild(inp)
-  inp.select()
-  
-  if (document.execCommand('copy')) {
-    AllOK();
-  } else {
-    console.log("Failed...")
-  }
-  
-  document.body.removeChild(inp)
+    ShowResult(finalWord_str)
 }
 function EnCode(){
     var text_str = document.getElementById("message").value;
@@ -102,23 +91,19 @@ function EnCode(){
         finalWord.push(fin_w);
     }
     var finalWord_str = finalWord.join("");
-
-    var inp = document.createElement('input')
-  inp.value = finalWord_str
-  document.body.appendChild(inp)
-  inp.select()
-  
-  if (document.execCommand('copy')) {
-    AllOK();
-  } else {
-    console.log("Failed...")
-  }
-  
-  document.body.removeChild(inp)
+    ShowResult(finalWord_str)
 }
 
-function AllOK(){
-    var txt = document.getElementById("OkText");
-    txt.innerHTML = "СООБЩЕНИЕ СКОПИРОВАНО В БУФЕР ОБМЕНА"
-    setTimeout(() => {txt.innerHTML = ""}, 3000);
+
+function ShowResult(result){
+    let input = document.getElementById("result")
+    input.value = result
+}
+
+function Copy(){
+    let input = document.getElementById("result")
+    if (input.value != ""){
+        input.select();
+        document.execCommand('copy')
+    }
 }
