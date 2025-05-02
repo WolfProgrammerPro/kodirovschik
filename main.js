@@ -11,6 +11,19 @@ document.getElementById("code").addEventListener("click", Code)
 document.getElementById("encode").addEventListener("click", EnCode)
 document.getElementById("copy").addEventListener("click", Copy)
 
+const isMobile = window.innerWidth < 768;
+if (!isMobile){
+    const box = document.getElementById("box")
+    const authorText = document.getElementById("authorText")
+    authorText.style.width = '20%'
+    authorText.style.height = '5%'
+    authorText.style.left = '75%'
+    box.style.width = '50%'
+    box.style.left = '25%'
+    const background = document.getElementById("Background")
+    document.body.style.backgroundImage = 'url(Background.png);'
+}
+
 function Code(){
     var text_str = document.getElementById("message").value;
     var key_str = document.getElementById("key").value;
@@ -107,4 +120,3 @@ function Copy(){
         document.execCommand('copy')
     }
 }
-console.log("Succes")
