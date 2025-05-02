@@ -1,4 +1,4 @@
-var symbols = ["`", "~","1","!","2","@","3","#","4","$","5","%","6","^","7","&","8","*","9","(","0",
+const symbols = ["`", "~","1","!","2","@","3","#","4","$","5","%","6","^","7","&","8","*","9","(","0",
     ")","-","_","=","+","q","w","e","r","t","y","u","i","o","p","[","]","\\","Q","W","E","R","T","Y"
     ,"U","I","O","P","{","}","|","a","s","d","d","f","g","h","j","k","l",";","'","A","S","D","F","G",
     "H","J","K","L",":","z","x","c","v","b","n","m",",",".","/","Z","X","C","V","B","N","M","<",">",
@@ -25,12 +25,12 @@ if (!isMobile){
 }
 
 function Code(){
-    var text_str = document.getElementById("message").value;
-    var key_str = document.getElementById("key").value;
-    var msg = text_str.split("");
-    var key = key_str.split("");
-    var finalKey = [];
-    var a = 0;
+    let text_str = document.getElementById("message").value;
+    let key_str = document.getElementById("key").value;
+    let msg = text_str.split("");
+    let key = key_str.split("");
+    let finalKey = [];
+    let a = 0;
     for (let i = 0; i < msg.length; i++){
         finalKey.push(key[a]);
         a++;
@@ -40,10 +40,10 @@ function Code(){
     }
     var finalWord = [];
     for (let j = 0; j < msg.length; j++){
-        var k = finalKey[j];
-        var w = msg[j];
-        var k_index = 0;
-        var w_index = 0;
+        let k = finalKey[j];
+        let w = msg[j];
+        let k_index = 0;
+        let w_index = 0;
         
         for (let q = 0; q < symbols.length; q++){
            
